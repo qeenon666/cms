@@ -1,0 +1,136 @@
+<div class="card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 class="card-label">Products list</h3>
+    </div>
+    <div class="card-toolbar">
+      <a
+        type="button"
+        class="btn btn-primary"
+        routerLink="/ecommerce/product/add"
+        >New Product</a
+      >
+    </div>
+  </div>
+  <div class="card-body">
+    <!-- begin:Table -->
+    <div class="table-responsive angular-bootstrap-table">
+      <table
+        class="table table-head-custom table-vertical-center overflow-hidden"
+      >
+        <thead>
+          <th class="selection-cell-header" data-row-selection="true">
+          </th>
+          <th>
+            VIN CODE (ID)
+            <app-sort-icon
+              column="VINCode"
+            ></app-sort-icon>
+          </th>
+          <th>
+            MANUFACTURE
+            <app-sort-icon
+              column="manufacture"
+            ></app-sort-icon>
+          </th>
+          <th>
+            MODEL
+            <app-sort-icon
+              column="model"
+            ></app-sort-icon>
+          </th>
+          <th>
+            YEAR
+            <app-sort-icon
+              column="modelYear"
+            ></app-sort-icon>
+          </th>
+          <th>
+            COLOR
+            <app-sort-icon
+              column="color"
+            ></app-sort-icon>
+          </th>
+          <th>
+            PRICE
+            <app-sort-icon
+              column="price"
+            ></app-sort-icon>
+          </th>
+          <th>
+            STATUS
+            <app-sort-icon
+              column="status"
+            ></app-sort-icon>
+          </th>
+          <th>
+            CONDITION
+            <app-sort-icon
+              column="condition"
+            ></app-sort-icon>
+          </th>
+          <th>ACTIONS</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <td class="selection-cell">
+            </td>
+            <td>{{ product.VINCode }}</td>
+            <td>{{ product.manufacture }}</td>
+            <td>{{ product.model }}</td>
+            <td>{{ product.modelYear }}</td>
+            <td>
+              <span [style.color]="product.color">{{ product.color }}</span>
+            </td>
+            <td>$ {{ product.price }}</td>
+            <td>
+              <span
+                class="label label-lg label-inline"
+                [class.label-light-success]="product.status === 1"
+                [class.label-light-primary]="product.status === 2"
+              >
+                <ng-container *ngIf="product.status === 1"
+                  >Selling</ng-container
+                >
+                <ng-container *ngIf="product.status === 2">Sold</ng-container>
+              </span>
+            </td>
+            <td>
+              <ng-container *ngIf="product.condition === 1">NEW</ng-container>
+              <ng-container *ngIf="product.condition === 2">USED</ng-container>
+            </td>
+            <td>
+              <a
+                title="Edit product"
+                class="btn btn-icon btn-light btn-hover-primary btn-sm mx-3"
+                [routerLink]="'/ecommerce/product/edit/' + product.VINCode"
+              >
+                <span
+                  [inlineSVG]="
+                    './assets/media/svg/icons/Communication/Write.svg'
+                  "
+                  cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-primary"
+                >
+                </span>
+              </a>
+              <a
+                title="Delete product"
+                class="btn btn-icon btn-light btn-hover-danger btn-sm"
+                (click)="delete(product.VINCode)"
+              >
+                <span
+                  [inlineSVG]="'./assets/media/svg/icons/General/Trash.svg'"
+                  cacheSVG="true"
+                  class="svg-icon svg-icon-md svg-icon-danger"
+                >
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- end: Table -->
+  </div>
+</div>
