@@ -6,7 +6,7 @@
 
 기본적인 틀은 Metronic의 demo1 angular를 이용했으며 Node Js, Express를 이용해서 MongoDB에 연결했다.
 
-● 설치 방법 - CMD
+● 실행 방법 - CMD
 1. npm install --global @angular/cli@latest 를 입력 후 angular를 설치한다.
 2. cd pro/demo1 
 3. npm clear cache --force
@@ -14,9 +14,9 @@
 5. npm install mongodb, express, nodemon 실행
 6. ng build --prod 실행                            --> dist 파일 생성
 7. npm start local                                 --> angular와 server를 같이 실행
+8. localhost:80/                                   --> 실행 완료
 
-
-● 실행화면
+● 실행 화면
 
                                                                초기화면
 ![8](https://user-images.githubusercontent.com/85939078/122632528-4c9c6f80-d10e-11eb-910c-a7ec2d521a47.PNG)
